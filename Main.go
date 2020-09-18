@@ -3,15 +3,21 @@ package main
 import "fmt"
 
 func main() {
-	n := 3.14
-	n = 2.1e2
-	fmt.Printf("%v, %T\n", n, n)
+	s := "This is a string"
+	fmt.Printf("%v, %T\n", s, s)
+	fmt.Printf("%v, %T\n", s[2], s[2])
+	fmt.Println("string are aliases for bytes")
+	fmt.Printf("%v, %T\n", string(s[2]), s[2])
+	fmt.Println("strings are generally immutable")
 
-	fmt.Println("Complex numbers")
-	fmt.Println("complex64 = float32 + float32")
-	fmt.Println("complex128 = float64 + float64")
-	var c complex64 = 1 + 2i
-	fmt.Printf("%v, %T\n", c, c)
-	fmt.Printf("real = %v, %T\n", real(c), real(c))
-	fmt.Printf("imag = %v, %T\n", imag(c), imag(c))
+	fmt.Printf("s = %v\n", s)
+	fmt.Printf("s + s = %v\n", s+s)
+
+	fmt.Println("string to byte slices")
+	b := []byte(s)
+	fmt.Printf("%v, %T\n", b, b)
+
+	fmt.Println("runes 'x', runes are a type alias for int32")
+	var r rune = 'a'
+	fmt.Printf("%v, %T\n", r, r)
 }
